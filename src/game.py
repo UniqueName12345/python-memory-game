@@ -23,6 +23,8 @@ def game_play():
         print("\nYou guessed correctly!")
         game()
     else:
+        # tell the number and that the guess was incorrect
+        print("\nThe number was", random_number)
         print("\nYou guessed incorrectly.")
         game_play()
 
