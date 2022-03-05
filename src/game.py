@@ -64,17 +64,32 @@ def login():
     else:
         print("\nUsername not found. Please try again.")
         login()
-# make a random number
-import random
-random_number = random.randint(1, 10)
 
+# if user is logged in, continue onto the game
+def game():
+    print("\nWelcome to the game!")
+    print("1. Play")
+    print("2. Exit")
+    choice = input("\nPlease choose an option: ")
+    if choice == "1":
+        print("\nYou have chosen to play the game.")
+        game_play()
+    elif choice == "2":
+        exit()
+    else:
+        print("\nInvalid option. Please try again.")
+        game()
 
-# ask the user to guess a number
-guess = int(input("Guess a number between 1 and 10: "))
-
-# compare the user's guess to the random number
-if guess == random_number:
-    print("You got it!")
-else:
-    print("Nope. The number I was thinking of was {}".format(random_number))
-
+def game_play():
+    # generate a random number between 1 and 10
+    import random
+    random_number = random.randint(1, 10)
+    # ask user to guess a number between 1 and 10
+    guess = input("\nGuess a number between 1 and 10: ")
+    # check if the guess is the same as the random number
+    if guess == random_number:
+        print("\nYou guessed correctly!")
+        game()
+    else:
+        print("\nYou guessed incorrectly.")
+        game_play()
